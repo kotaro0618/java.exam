@@ -1,6 +1,6 @@
 public class Exam1 {
     public static void main(String[] args) {
-        int totalScore = 0;
+        int totalScore;
         totalScore=29;
         if (totalScore <= 79) {
             System.out.println("追試です");
