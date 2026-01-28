@@ -1,20 +1,8 @@
-public class App {
-    public static void main(String[] args) throws Exception {
-        System.out.println("1.char");
-        System.out.println("2.long");
-        System.out.println("3.short");
-        System.out.println("4.flort");
-        System.out.println("5.String");
-        System.out.println("6.int");
-        System.out.println("7.byte");
-        System.out.println("8.double");
-       
-    }
-}
 package exam;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 /**
  * 雛形クラスです.<br>
@@ -32,6 +20,7 @@ public class Template {
 		Connection con = null; // 使用する変数の宣言
 		PreparedStatement pstmt = null;
 		String sql = null;
+		ResultSet rs=null;
 
 		try {
 			// (1)データベースに接続
@@ -55,9 +44,15 @@ public class Template {
 		} finally {
 			try {
 				// (6) メモリの解放(切断)
-				con.close();
+				if(!(con==null)){
+                   con.close(); 
+                }if(!(pstmt==null)){
+                   pstmt.close(); 
+                }if(!(rs==null)){
+					rs.close();
+				}
+				
 			} catch (Exception ex) {}
 		}
 	}
 }
-
