@@ -1,0 +1,26 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Ex01",
+            "request": "launch",
+            "mainClass": "Ex01",
+            "projectName": "logic-exam-{伊藤晃太朗}_88701784"
+        },
+        {
+            "type": "java",
+            "name": "Ex02",
+            "request": "launch",
+            "mainClass": "Ex02",
+            "args": [
+                11,
+                59,
+                59
+            ]
+        }
+    ]
+}
