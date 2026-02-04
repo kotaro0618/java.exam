@@ -1,12 +1,12 @@
 public class Ex04 {
-    int age = 0;
+    int year = 0;
 
-    boolean uru(int age) {
-        if (age % 4 == 0 && age % 100 == 0 && age % 400 == 0) {
+    static boolean isUrudoshi(int year) {
+        if (year % 4 == 0 && year % 100 == 0 && year % 400 == 0) {
             return true;
-        } else if (age % 4 == 0 && age % 100 == 0) {
+        } else if (year % 4 == 0 && year % 100 == 0) {
             return false;
-        } else if (age % 4 == 0) {
+        } else if (year % 4 == 0) {
             return true;
         } else {
             return false;
