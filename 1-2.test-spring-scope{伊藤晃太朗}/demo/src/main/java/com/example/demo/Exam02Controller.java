@@ -15,9 +15,11 @@ public class Exam02Controller {
     @RequestMapping("/tasu")
     public String tasu(Integer num1,Integer num2,HttpSession session){
         User user=new User();
+        int sum=num1+num2;
         user.setNum1(num1);
         user.setNum2(num2);
         session.setAttribute("user", user);
+        session.setAttribute("sum", sum);
 
         return "exam02-result";
     }
