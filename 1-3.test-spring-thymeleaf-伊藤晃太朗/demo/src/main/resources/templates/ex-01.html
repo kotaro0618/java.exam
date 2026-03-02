@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body><form th:action="@{/ex01/result}">
+<body><form th:action="@{/ex01/result}" method="post">
  名前: <input type="text" name="name"><br>
     年齢: <input type="text" name="age"><br>
     趣味（3つ）: <br>
-    <input type="text" name="hobby"><br>
-    <input type="text" name="hobby"><br>
-    <input type="text" name="hobby"><br>
+    <input type="text" name="hobbyList"><br>
+    <input type="text" name="hobbyList"><br>
+    <input type="text" name="hobbyList"><br>
 
     <button>送信</button>
 </form>
