@@ -1,0 +1,62 @@
+package com.example.q8;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+@Repository
+@Transactional
+public class BaseballRepository {
+	
+	@Autowired
+	private NamedParameterJdbcTemplate template;
+	
+	private static final RowMapper<BaseballDomain> baseballDomainRowMapper = (rs, i) ->{
+		Integer id = rs.getInt("id");
+		String name = rs.getString("name");
+		Date date = rs.getDate("established_date");
+		return new BaseballDomain(id,name,date);
+		};
+	
+	public List<BaseballDomain> findAll(){
+		String sql = "SELECT id,name,established_date FROM teams ORDER BY established_date";
+		
+		List<BaseballDomain> baseballDomainList = template.query(sql, baseballDomainRowMapper);
+		
+		return baseballDomainList;
+	}
+	public BaseballDomain load(Integer id){
+		String sql = "SELECT * FROM teams WHERE id = :id";
+		SqlParameterSource param =
+    new MapSqlParameterSource()
+        .addValue("id", id);
+
+return template.queryForObject(sql, param, baseballDomainRowMapper);
+}
+	
+	public BaseballDomain save(BaseballDomain baseballDomain){
+		
+		return null;
+	}
+
+	public BaseballDomain delete(Integer id){
+		//未実装
+		String sql =
+    "DELETE FROM teams WHERE id=:id";
+
+SqlParameterSource param =
+    new MapSqlParameterSource()
+        .addValue("id", id);
+
+template.update(sql, param);
+return null;
+	}
+}
+		
